@@ -9,8 +9,9 @@ Welcome to Assignment 1! In this assignment, you will work with **Java threads**
 - 🔄 Understand CPU scheduling concepts
 - 💻 Write, test, and document real concurrent code
 - 📊 Analyze threading behavior
+- 🌟 Develop professional software development practices including version control, documentation, and project presentation
 
-**Important**: This assignment is worth **5 marks** (5% of your final grade).
+**Important**: This assignment is worth **10 marks** (10% of your final grade).
 
 ---
 
@@ -50,7 +51,7 @@ cd OS-Assignment1-YourFirstName-YourLastName
 
 **⚠️ CRITICAL FIRST STEP ⚠️**
 
-Open `SchedulerSimulation.java` and **immediately** change line 92:
+Open `SchedulerSimulation.java` and **immediately** change line 150:
 
 ```java
 // BEFORE (DO NOT SUBMIT THIS):
@@ -127,46 +128,86 @@ The scheduler that manages all processes:
 
 ---
 
-## ✅ Your Tasks (5 Parts - 5 Marks Total)
+## ✅ Your Tasks (4 Parts - 10 Marks Total)
 
-### **Part 1: Personalize & Run (1.5 marks)**
+### **Part 1: GitHub Account & Repository Setup (3 marks)**
 
-1. **Set your student ID** in line 92 (see Step 3 above)
-2. **Compile and run** the program:
-   ```bash
-   javac SchedulerSimulation.java
-   java SchedulerSimulation
-   ```
-3. **Take a screenshot** of the output showing:
-   - Your student ID in the header
-   - The simulation running
-   - All processes finishing
-4. **Save screenshot** as `output_screenshot.png` in your repository
-5. **Commit your changes**:
-   ```bash
-   git add SchedulerSimulation.java output_screenshot.png
-   git commit -m "Part 1 complete: Set student ID and captured output"
-   git push origin main
-   ```
+1. **Create GitHub Account** using your university email (@std.psau.edu.sa)
+   - Go to https://github.com/signup
+   - Use your university email: `yourname@std.psau.edu.sa`
+   - Verify your email address
+   - Choose a professional username
 
-### **Part 2: Code Implementation (1.5 marks)**
+2. **Fork the Starter Repository**:
+   - Go to: `https://github.com/makopt/OS-Assignment1-Starter`
+   - Click the **"Fork"** button at the top right
+   - Wait for GitHub to create your copy
 
-**Modify the code** to add these features:
+3. **Rename Your Repository**:
+   - Go to Settings → Change repository name to:
+   - `OS-Assignment1-YourFirstName-YourLastName`
+   - Example: `OS-Assignment1-Mohammed-Ahmed`
+   - **Verify repository is PUBLIC**
 
-#### 2.1: Add Process Priority (0.5 marks)
-- Add a `priority` field to the Process class (1-5, where 5 is highest)
+4. **Set Your Student ID** in line 150 of `SchedulerSimulation.java`:
+   - Click on the file → Edit (pencil icon)
+   - Replace `123456789` with YOUR actual student ID
+   - Commit: `"Set my student ID: [YOUR-ID]"`
+
+**Commit Examples**:
+```bash
+git add SchedulerSimulation.java
+git commit -m "Set my student ID: 441234567"
+git push origin main
+```
+
+### **Part 2: Code Implementation (3 marks)**
+
+**Modify the code** to add these three features:
+
+The starter code already includes several enhancements:
+- **Color-Coded Output** for better readability
+- **Visual Progress Bars** for process execution
+- **Ready Queue Visualization** before each execution
+- **Randomized Simulation** based on your student ID
+
+**Your task** is to add these new features:
+
+**Important Guidelines**:
+- Make **one commit per feature** - do NOT commit everything at once!
+- Test each feature before committing
+- Add clear comments explaining your additions
+- Keep the existing functionality working
+
+**Commit Examples**:
+- ✅ `"Feature 1: Added priority field to Process class"`
+- ✅ `"Feature 2: Implemented context switch counter"`
+- ✅ `"Feature 3: Added waiting time tracking and summary"`
+- ❌ `"done"` or `"update"` or `"final version"` (too vague!)
+
+#### 2.1: Feature 1 - Add Process Priority (1 mark)
+- Add a `priority` field to the Process class (integer 1-5, where 5 is highest)
 - Generate random priorities when creating processes
 - Display priority when a process enters the ready queue
+- Example output: `"P1 (Priority: 4) enters the ready queue..."`
+- Add clear comments explaining your additions
 
-#### 2.2: Count Context Switches (0.5 marks)
-- Add a counter for context switches (when CPU switches between processes)
-- Display the total number of context switches at the end
-- A context switch occurs every time a new process starts running
+#### 2.2: Feature 2 - Count Context Switches (1 mark)
+- Add a static counter variable for context switches
+- Increment the counter each time a new process starts running
+- Display total context switches at the end of simulation
+- Example: `"Total context switches: 47"`
+- A context switch occurs every time the CPU switches to a different process
 
-#### 2.3: Track Waiting Time (0.5 marks)
-- Calculate and display each process's waiting time
-- Waiting time = Time since creation - Time actually running
-- Display waiting times in a summary table at the end
+#### 2.3: Feature 3 - Track Waiting Time (1 mark)
+- Add fields to track when each process was created and total time spent waiting
+- Calculate waiting time for each process
+- Use `System.currentTimeMillis()` to track time
+- Display a summary table at the end showing:
+  - Process Name
+  - Burst Time
+  - Waiting Time
+- Format the output in a clear, readable table
 
 **Commit after EACH feature**:
 ```bash
@@ -175,37 +216,73 @@ git commit -m "Added [feature name]: [brief description]"
 git push origin main
 ```
 
-### **Part 3: Documentation (1 mark)**
+### **Part 3: Documentation (2 marks)**
 
-Complete these three files:
+Complete these three markdown files in your repository to document your work and demonstrate your understanding:
 
-#### 3.1: DEVELOPMENT_LOG.md (0.4 marks)
-Document your development process with **at least 5 entries**:
-- What you worked on
-- What challenges you faced
-- How you solved problems
-- Timestamps for each entry
+#### 3.1: DEVELOPMENT_LOG.md (1 mark)
+Track your development process with **minimum 5 entries**:
+- Date and time of work session
+- What you worked on (specific features or tasks)
+- Challenges encountered during this session
+- Solutions you implemented
+- Time spent (approximate)
+- **Template with example format is provided in the file!**
+- Entries should be spread across different dates (not all at once)
 
-#### 3.2: REFLECTION.md (0.3 marks)
-Answer the 4 reflection questions about your learning experience:
-- What you learned about multithreading
-- Challenges you faced
-- How you overcame difficulties
-- Real-world applications
+#### 3.2: REFLECTION.md (0.5 marks)
+Answer the **4 reflection questions** provided in the file:
+1. What did you learn about multithreading from this assignment?
+2. What was the most challenging part of this assignment and why?
+3. How did you overcome the challenges you faced?
+4. How can multithreading concepts be applied in real-world applications?
+- Each answer: **minimum 5-7 sentences**
+- Write in your own words, showing genuine reflection
+- Connect concepts to your actual experience with the code
 
-#### 3.3: ANSWERS.md (0.3 marks)
-Provide detailed answers to all 4 assignment questions:
-- Each answer should be 3-5 sentences minimum
-- Use proper terminology
-- Reference your code where relevant
+#### 3.3: ANSWERS.md (0.5 marks)
+Answer the **4 technical questions** in the provided template:
+- Each answer: **minimum 3-5 sentences**
+- Include specific examples from your code or output
+- Use proper technical terminology (thread, process, time quantum, context switch, etc.)
+- Reference relevant parts of your code where appropriate
 
-### **Part 4: Version Control (0.5 marks)**
+### **Part 4: Video Demonstration (2 marks)**
 
-Your repository must show:
-- ✅ **At least 3 meaningful commits** spread over time
-- ✅ Clear commit messages describing what changed
-- ✅ Commits made on **different dates/times** (not all at once!)
-- ✅ Incremental progress (not everything in one commit)
+Create a **2-3 minute video** (not shorter, not longer) showing:
+
+1. **Introduction (30 seconds)**:
+   - State your name and student ID
+   - Show your GitHub repository homepage
+   - Verify repository is public and uses university email
+
+2. **Code Walkthrough (1 minute)**:
+   - Navigate through your repository files
+   - Show your three modifications (priority, context switches, waiting time)
+   - Briefly explain each feature you added
+
+3. **Execution Demo (30 seconds)**:
+   - Open your IDE (VS Code, IntelliJ IDEA, Eclipse, or similar)
+   - Show the `SchedulerSimulation.java` file open in the IDE
+   - Compile and run using your IDE's run button/feature
+   - Show console output with your student ID and unique simulation parameters
+
+4. **Concept Explanation (30 seconds)**:
+   - Pick ONE threading concept you learned
+   - Options: `Thread.start()`, `Thread.join()`, `Thread.sleep()`, or how the ready queue works
+   - Explain it in your own words using your code as example
+
+5. **Closing (10 seconds)**:
+   - Show your commit history (at least 3 commits)
+   - Thank you message
+
+**Video Requirements**:
+- Upload to **Google Drive** with public sharing link
+- Set permissions to "Anyone with the link can view"
+- Name: `StudentID_Assignment1_Demo.mp4` (or .mov, .avi)
+- Show your face OR use clear voice narration
+- Screen recording showing code and execution
+- Good audio quality (test your microphone first!)
 
 **Good commit examples**:
 - ✅ "Part 1: Set student ID to 441234567"
@@ -218,46 +295,85 @@ Your repository must show:
 - ❌ "update"
 - ❌ "final version"
 
-### **Part 5: Video Demonstration (0.5 marks)**
+**Recording Tools**:
+- **Mac**: QuickTime Player (File → New Screen Recording)
+- **Windows**: Xbox Game Bar (Win + G) or OBS Studio
+- **Linux**: SimpleScreenRecorder or OBS Studio
 
-Create a **2-3 minute video** showing:
+**Important Notes**:
+- Use your IDE (VS Code, IntelliJ IDEA, Eclipse, etc.) to compile and run - NOT just terminal
+- Make sure the IDE console output is clearly visible
+- Show your unique simulation parameters: student ID, time quantum, and number of processes
+- Explain concepts in your own words to demonstrate understanding
 
-1. **Your GitHub repository** (show your account with university email)
-2. **Navigate through your code** files
-3. **Compile and run** your program in terminal/command prompt
-4. **Explain** one threading concept you learned (choose from):
-   - How `Thread.start()` works
-   - What `Thread.join()` does
-   - Why we use `Thread.sleep()`
-   - How the ready queue works
+---
 
-**Video Requirements**:
-- Length: 2-3 minutes (not shorter, not longer)
-- Show your face OR use clear voice narration
-- Screen recording of your code and execution
-- Upload to **YouTube (unlisted)** or **Google Drive** (link-accessible)
-- Add video link to your README.md
+## � Recommended Development Environment
 
-**Recording your video**:
-- Mac: Use QuickTime Player (File → New Screen Recording)
-- Windows: Use Xbox Game Bar (Win + G)
-- Linux: Use SimpleScreenRecorder or OBS Studio
+**We strongly recommend using Visual Studio Code (VS Code) as your IDE:**
+
+### Why VS Code?
+- **Download**: Visit [Visual Studio Code](https://code.visualstudio.com/download) and install for your OS
+- **GitHub Integration**: Built-in Git support makes committing and pushing easier
+- **Easy Setup**: Sign in to GitHub in VS Code (click account icon, bottom left)
+- **Clone Repository**: Use File > Open Folder or Command Palette (Ctrl/Cmd+Shift+P) → "Git: Clone"
+
+### Recommended Extensions:
+- **GitLens** - Enhances Git capabilities and visualization
+- **Java Extension Pack** - Provides Java language support, debugging, and project management
+- **Markdown All in One** - Useful for editing documentation files
+
+### Helpful Tutorials:
+- [VS Code GitHub Integration](https://www.youtube.com/watch?v=i_23KUAEtUM)
+- [Java Development in VS Code](https://www.youtube.com/watch?v=BB0gZFpukJU)
+
+**Note**: You can use any IDE (IntelliJ IDEA, Eclipse, Notepad++, etc.), but VS Code is recommended for excellent GitHub integration.
+
+---
+
+## �🔑 Professional Development Practices
+
+### Version Control (Critical for Success!)
+
+Your repository must demonstrate professional Git usage:
+- ✅ **Minimum 3 meaningful commits** spread over time
+- ✅ Clear commit messages describing what changed
+- ✅ Commits on **different dates/times** (not all at once!)
+- ✅ One commit per feature - incremental progress
 
 ---
 
 ## 📝 Questions to Answer (in ANSWERS.md)
 
+These questions help you demonstrate technical understanding. Each answer should be thoughtful and specific.
+
 ### Question 1: Thread vs Process
-Explain the difference between a **thread** and a **process**. Why did we use threads in this assignment instead of creating separate processes?
+- **Explain the difference** between a thread and a process
+- **Why did we use threads** in this assignment instead of separate processes?
+- **Mention at least TWO specific differences** (e.g., memory sharing, creation overhead, communication speed)
+- **Reference relevant parts** of `SchedulerSimulation.java` where appropriate
+- Minimum: 3-5 sentences
 
 ### Question 2: Ready Queue Behavior
-In Round-Robin scheduling, what happens when a process doesn't finish within its time quantum? Explain using an example from your program output.
+- In Round-Robin scheduling, **what happens when a process doesn't finish** within its time quantum?
+- **Explain using a specific example** from YOUR program output
+- **Copy a relevant snippet** from your terminal output showing a process being re-queued
+- **Explain why this re-queueing behavior** is important for fairness in CPU scheduling
+- Minimum: 3-5 sentences
 
-### Question 3: Thread States
-A thread can be in different states: New, Runnable, Running, Waiting, Terminated. Walk through these states for one process (P1) from your simulation.
+### Question 3: Thread Lifecycle
+- A thread typically goes through these states: **New, Runnable, Running, Waiting, Terminated**
+- **Walk through these states** for one process (e.g., P1) from your simulation
+- For each state, **explain WHEN P1 enters that state** during execution
+- **Use specific method calls** from the code (`Thread.start()`, `Thread.join()`, `Thread.sleep()`) in your explanation
+- Minimum: 3-5 sentences
 
 ### Question 4: Real-World Applications
-Give TWO real-world examples where Round-Robin scheduling with threads would be useful. Explain why this scheduling algorithm works well for those scenarios.
+- **Describe TWO real-world scenarios** where Round-Robin scheduling with threads would be useful
+- For each scenario: **What is the application/system?** (e.g., web server, game engine, media player)
+- For each scenario: **Why is Round-Robin scheduling appropriate?** (consider fairness, responsiveness, predictability)
+- **Explain how the concepts** from this assignment apply to each scenario
+- Minimum: 3-5 sentences
 
 ---
 
@@ -300,33 +416,35 @@ Give TWO real-world examples where Round-Robin scheduling with threads would be 
 
 ---
 
-## ⚠️ Important Warnings
+## ⚠️ Academic Integrity
 
-### ❌ What NOT to Do:
+### Critical Warnings:
 
-1. **Don't use ChatGPT/AI to write your code without understanding it**
-   - You will be asked to explain your code in the video
-   - If you can't explain it, you'll receive 0 marks
+1. **AI-Generated Code**: 
+   - Pure AI-generated submissions without understanding will receive **zero marks**
+   - You may be asked to explain your code in person
+   - You must be able to answer questions about your implementation
 
-2. **Don't copy from classmates**
-   - Each student has a unique student ID → unique output
-   - Plagiarism results in 0 marks + academic misconduct report
+2. **Plagiarism**: 
+   - Copying from classmates results in **zero marks for all parties**
+   - Each student has unique output based on their student ID
 
-3. **Don't make all commits at the last minute**
-   - We can see your commit timestamps
-   - Single-commit or last-hour submissions lose marks
+3. **Commit History**: 
+   - Single bulk commits show poor practice and will be penalized
+   - Commits must be spread over different dates/times
 
-4. **Don't forget the university email**
-   - GitHub account MUST use @std.psau.edu.sa
-   - Other emails will result in -0.25 marks
+4. **Video Authenticity**: 
+   - You must be able to answer questions about your work
+   - Video should show genuine understanding, not memorized explanations
 
-### ✅ What TO Do:
+### ✅ Best Practices:
 
 1. **Start early** - Don't wait until the deadline
-2. **Commit frequently** - After each small change
-3. **Test your code** - Make sure it compiles and runs
+2. **Commit frequently** - After each small change  
+3. **Test your code** - Make sure it compiles and runs correctly
 4. **Ask questions** - Use Blackboard discussion or office hours
 5. **Keep it simple** - Don't over-complicate your modifications
+6. **Understand everything** - Be able to explain every line you write
 
 ---
 
@@ -339,11 +457,11 @@ Submit **ONE text file** named: `YourName_StudentID_Assignment1.txt`
 **Content of the text file**:
 ```
 Student Name: Mohammed Ahmed Abdullah
-Student ID: 441234567
-GitHub Username: mohammed-ahmed
-Repository Link: https://github.com/mohammed-ahmed/OS-Assignment1-Mohammed-Ahmed
-Video Link: https://youtu.be/aBcDeFgHiJk
-Date Submitted: April 14, 2026
+Student ID: 442105123
+GitHub Username: mohammed-ahmed-441
+Repository Link: https://github.com/mohammed-ahmed-441/OS-Assignment1-Mohammed-Ahmed
+Video Link: https://drive.google.com/file/d/1aBcDeFgHiJkLmNoPqRsTuVwXyZ/view?usp=sharing
+Date Submitted: March 31, 2026
 ```
 
 ### Submission Checklist:
@@ -360,24 +478,24 @@ Before submitting, verify:
 
 ---
 
-## 🏆 Grading Breakdown (5 Marks Total)
+## 🏆 Grading Breakdown (10 Marks Total)
 
 | Component | Marks | Criteria |
 |-----------|-------|----------|
-| **Part 1: Personalization & Execution** | 1.5 | Student ID set, program runs, screenshot provided |
-| **Part 2: Code Implementation** | 1.5 | All 3 features implemented correctly |
-| **Part 3: Documentation** | 1.0 | All files completed with good detail |
-| **Part 4: Version Control** | 0.5 | Meaningful commits showing progression |
-| **Part 5: Video Demonstration** | 0.5 | Clear video showing all requirements |
-| **Total** | **5.0** | |
+| **Part 1: GitHub Setup & Personalization** | 3.0 | GitHub account (university email 0.5), Repository forked & renamed (1.0), Student ID set (1.0), Repository public (0.5) |
+| **Part 2: Code Implementation** | 3.0 | Feature 1: Priority (1.0), Feature 2: Context switches (1.0), Feature 3: Waiting time (1.0) - Code compiles, runs, has comments, separate commits |
+| **Part 3: Documentation** | 2.0 | DEVELOPMENT_LOG.md (1.0), REFLECTION.md (0.5), ANSWERS.md (0.5) - All demonstrate understanding |
+| **Part 4: Video Demonstration** | 2.0 | Length 2-3 min (0.5), Shows repo/code/execution (0.5), Concept explanation (0.5), Quality & accessibility (0.5) |
+| **Professional Practices** | Included | Min 3 commits, spread over time, descriptive messages |
+| **Total** | **10.0** | |
 
 ### Penalties:
-- Late submission: **-1 mark per day**
-- Missing video: **-0.5 marks**
-- Single commit or all commits in last hour: **-0.5 marks**
-- Private repository: **-0.5 marks**
-- Not using university email: **-0.25 marks**
-- AI-generated without understanding: **0 marks**
+- Late submission: **-2 marks per day**
+- Missing video: **-2 marks**
+- Single commit or all commits in last hour: **-1 mark**
+- Private repository: **-1 mark**
+- Not using university email: **-0.5 marks**
+- AI-generated without understanding: **0 marks** (entire assignment)
 - Plagiarism: **0 marks + academic misconduct report**
 
 ---
@@ -438,7 +556,7 @@ Before submitting, verify:
 
 ## 📝 Final Checklist Before Submission
 
-- [ ] Student ID set in code (line 92)
+- [ ] Student ID set in code (line 150)
 - [ ] Code compiles without errors
 - [ ] Code runs and produces expected output
 - [ ] All 3 features implemented (priority, context switches, waiting time)
@@ -460,9 +578,9 @@ Before submitting, verify:
 
 ## 🎓 Deadline
 
-**Due Date**: April 15, 2026, 11:59 PM
+**Due Date**: March 31, 2026, 11:59 PM
 
-**Late Policy**: -1 mark per day late
+**Late Policy**: -2 marks per day late
 
 ---
 
