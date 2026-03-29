@@ -29,9 +29,9 @@ class Process implements Runnable {
     private int burstTime; // Total time the process requires to complete (in milliseconds)
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
-    private int priority;
+    private int priority; // adding the priority
 
-    // Constructor to initialize the process with name, burst time, and time quantum
+    // Constructor to initialize the process with name, burst time, and time quantum and priority
     public Process(String name, int burstTime, int timeQuantum,int priority) {
         this.name = name;
         this.burstTime = burstTime;
@@ -126,7 +126,7 @@ class Process implements Runnable {
         }
     }
 
-    // Getter methods for process name, burst time, and remaining time
+    // Getter methods for process name, burst time, and remaining time and priority
     public String getName() {
         return name;
     }
@@ -147,6 +147,7 @@ class Process implements Runnable {
     }
 }
 
+static int contextSwitches =0; //count how many times cpu changes process
 public class SchedulerSimulation {
     public static void main(String[] args) {
         // ⚠️ IMPORTANT: Put your student ID here to seed the random number generator
@@ -199,10 +200,10 @@ public class SchedulerSimulation {
         for (int i = 1; i <= numProcesses; i++) {
             // Random burst time for each process between timeQuantum/2 and 3*timeQuantum
             int burstTime = timeQuantum/2 + random.nextInt(2 * timeQuantum + 1);
-
+            // random number of priority
             int priority = random.nextInt(5)+1;
             
-            // Create a new process object with a unique name, burst time, and the defined time quantum
+            // Create a new process object with a unique name, burst time, and the defined time quantum and priority
             Process process = new Process("P" + i, burstTime, timeQuantum,priority);
             
             // Add the process to the ready queue and the map
@@ -241,6 +242,8 @@ public class SchedulerSimulation {
             }
             System.out.println(Colors.BRIGHT_WHITE + "]" + Colors.RESET);
             System.out.println(Colors.BOLD + Colors.MAGENTA + "└" + "─".repeat(79) + Colors.RESET + "\n");
+
+            contextSwitches++; //increase count when a new process starts
             
             // Start the thread, which will run the process for one time quantum
             currentThread.start();
@@ -279,6 +282,7 @@ public class SchedulerSimulation {
                           Colors.BG_GREEN + Colors.WHITE + Colors.BOLD + 
                           "                     ✓  ALL PROCESSES COMPLETED  ✓                            " + 
                           Colors.RESET + Colors.BOLD + Colors.BRIGHT_GREEN + "║" + Colors.RESET);
+                          system.out.println("total context switches:"+ contextSwitches); // print total number at the end
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
