@@ -30,6 +30,8 @@ class Process implements Runnable {
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
     private int priority; // adding the priority
+    private long creationTime; // time when process enters the queue
+    private long totalWaitingTime=0; // total time the process waited
 
     // Constructor to initialize the process with name, burst time, and time quantum and priority
     public Process(String name, int burstTime, int timeQuantum,int priority) {
@@ -38,11 +40,14 @@ class Process implements Runnable {
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
         this.priority = priority;
+        this.creationTime=System.currentTimeMillis(); //save current time when process is created
     }
 
     // This method will be called when the thread for this process is started
     @Override
     public void run() {
+        long startTime= System.currentTimeMillis(); //get time when process starts running
+        totalWaitingTime += (startTime - creationTime ); // calculate how long it waited
         // Simulate running for either the time quantum or remaining time, whichever is smaller
         int runTime = Math.min(timeQuantum, remainingTime); // Run for the smaller of the two times
         
@@ -92,6 +97,7 @@ class Process implements Runnable {
                               Colors.RESET);
         }
         System.out.println();
+        creationTime= System.currentTimeMillis(); // update time when process gose back to queue
     }
     
     // Helper method to create a visual progress bar
@@ -111,6 +117,8 @@ class Process implements Runnable {
 
     // Method to run the last process to completion, ignoring the time quantum
     public void runToCompletion() {
+        long startTime = System.currentTimeMillis(); // get time when last process starts
+        totalWaitingTime += (startTime- creationTime); // add final waiting time
         try {
             // Run for the remaining time without splitting into smaller time slices
             System.out.println(Colors.BRIGHT_CYAN + "  ⚡ " + Colors.BOLD + Colors.CYAN + name + 
@@ -126,7 +134,7 @@ class Process implements Runnable {
         }
     }
 
-    // Getter methods for process name, burst time, and remaining time and priority
+    // Getter methods for process name, burst time, and remaining time and priority and totalWaitingTime
     public String getName() {
         return name;
     }
@@ -140,6 +148,9 @@ class Process implements Runnable {
     }
     public int getpriority(){
         return priority;
+    }
+    public long getWaitingTime(){
+        return totalWaitingTime;
     }
 
     // Check if the process has finished (i.e., no remaining time)
@@ -287,6 +298,12 @@ static int contextSwitches =0; //count how many times cpu changes process
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
+
+                          System.out.println("\n summary :"); //print summary
+                          System.out.println("process \t burst \t waiting"); // print table title
+                          for(Process p : processMap.values()){
+                            System.out.println(p.getName()+ "\t" + p.getBurstTime() + "\t" +p.getWaitingTime()); // show process informations
+                          }
     }
     
     // Method to add a process to the queue and map, while printing a "ready" message
