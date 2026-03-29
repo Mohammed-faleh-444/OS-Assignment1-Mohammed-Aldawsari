@@ -1,7 +1,7 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
 import java.util.Random;
 
 // ANSI Color Codes for enhanced terminal output
@@ -140,6 +140,7 @@ class Process implements Runnable {
     }
     public int getpriority(){
         return priority;
+    }
 
     // Check if the process has finished (i.e., no remaining time)
     public boolean isFinished() {
@@ -147,8 +148,8 @@ class Process implements Runnable {
     }
 }
 
-static int contextSwitches =0; //count how many times cpu changes process
 public class SchedulerSimulation {
+static int contextSwitches =0; //count how many times cpu changes process
     public static void main(String[] args) {
         // ⚠️ IMPORTANT: Put your student ID here to seed the random number generator
         // This makes your output unique to you - DO NOT forget to change this!
@@ -282,7 +283,7 @@ public class SchedulerSimulation {
                           Colors.BG_GREEN + Colors.WHITE + Colors.BOLD + 
                           "                     ✓  ALL PROCESSES COMPLETED  ✓                            " + 
                           Colors.RESET + Colors.BOLD + Colors.BRIGHT_GREEN + "║" + Colors.RESET);
-                          system.out.println("total context switches:"+ contextSwitches); // print total number at the end
+                          System.out.println("\n total context switches:"+ contextSwitches); // print total number at the end
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
                           Colors.RESET + "\n");
