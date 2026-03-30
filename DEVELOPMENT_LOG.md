@@ -32,90 +32,90 @@ Document your development process as you work on the assignment. Add entries sho
 
 ## Your Development Log:
 
-### Entry 1 - [Date and Time]
-**What I did**: 
+## Entry 1 - [march28,2026,4pm]
+**What I did**: started the project and understood the given code
 
-**Details**: 
+**Details**: i read the assignment instructions and understand how the scheduler work and run the code
 
-**Challenges**: 
+**Challenges**: i did not understand how the threads are used in the code at first
 
-**Solution**: 
+**Solution**: i watched a video who make me learn about runnable and threads in java
 
-**Time spent**: 
-
----
-
-### Entry 2 - [Date and Time]
-**What I did**: 
-
-**Details**: 
-
-**Challenges**: 
-
-**Solution**: 
-
-**Time spent**: 
+**Time spent**: 1 - 1:30 hour
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**: 
+### Entry 2 - [march29,2026,6am]
+**What I did**: modified the student id and tested randomness
 
-**Details**: 
+**Details**: changed the student id to my actual id and observed how number of processes and time quantum change and tested running the code multiple times
 
-**Challenges**: 
+**Challenges**: i was confused why the output changes
 
-**Solution**: 
+**Solution**: understood that random depends on the student id seed
 
-**Time spent**: 
-
----
-
-### Entry 4 - [Date and Time]
-**What I did**: 
-
-**Details**: 
-
-**Challenges**: 
-
-**Solution**: 
-
-**Time spent**: 
+**Time spent**: 30 minutes
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**: 
+### Entry 3 - [march29,2026,8am]
+**What I did**: worked on process execution logic
 
-**Details**: 
+**Details**: focused on run() method and understood how time quantum is applied and checked how remaining time decreases
 
-**Challenges**: 
+**Challenges**: did not understand how waiting time is calculated
 
-**Solution**: 
+**Solution**: reviewed the formula used System.currentTimeMillis() to track time
 
-**Time spent**: 
+**Time spent**: 1 hour
 
 ---
 
-### Entry 6 - [Optional - Date and Time]
-**What I did**: 
+### Entry 4 - [march29,2026,7pm]
+**What I did**: added waiting time and context switch tracking
 
-**Details**: 
+**Details**: added totalWaitingTime variable and updated it inside run() method and added contextSwitches counter in main
 
-**Challenges**: 
+**Challenges**: witing time values looked incorrect at first
 
-**Solution**: 
+**Solution**: fixed by updating creationTime after each execution
 
-**Time spent**: 
+**Time spent**: 1 hour
+
+---
+
+### Entry 5 - [march29,2026,8pm]
+**What I did**: improved output and added summary
+
+**Details**: added colored output using ANSI codes and added summary table at the end and printed burst time and waiting time for each process
+
+**Challenges**: had problem formatting the output table
+
+**Solution**: used "\t" for spacing between columns
+
+**Time spent**: 45 minutes
+
+---
+
+### Entry 6 - [march30,2026,4pm]
+**What I did**: final testing and debugging
+
+**Details**: ran the program multiple times and checked if all processes finish correctly and verified waiting time and context switches
+
+**Challenges**: small syntax error in print statement
+
+**Solution**: fixed quotation and spacing issue
+
+**Time spent**: 30 minutes
 
 ---
 
 ## Summary
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [4 hours 25 minutes]
 
-**Most challenging part**: 
+**Most challenging part**: understanding how waiting time is calculated using system time
 
-**Most interesting learning**: 
+**Most interesting learning**: using threads and simulating CPU scheduling was interesting
 
-**What I would do differently next time**: 
+**What I would do differently next time**: i would start earlier and try to use priority in scheduling instead of just storing it
